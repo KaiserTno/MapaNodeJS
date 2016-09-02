@@ -1,0 +1,56 @@
+﻿doctype html
+html
+  head
+    title Socket.IO chat
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    article#wrapper.row
+      #chat
+        ul.chat_area
+          li
+            a.world(href='#') World
+          li
+            a#createroom.room(href='#') Room
+        #login_panel
+          .content
+            .item-control
+              .label Username: 
+              .control
+                input#user_name(type='text', value='user1')
+            .item-control
+              .label Sex: 
+              #sex.control
+                input#male(type='radio', name='sex', checked='')
+                label(for='male') Male
+                input#female(type='radio', name='sex')
+                label(for='female') Female
+            .item-control
+              .label Coordinate x: 
+              .control
+                input#coor_k(type='text', value='', disabled='')
+            .item-control
+              .label Coordinate y: 
+              .control
+                input#coor_B(type='text', value='', disabled='')
+            button#button_login Login
+        #world(style='display:none')
+          .room_chat
+            #message
+            input#chat_message(type='text', value='Hello !!!')
+            button#send_message Send
+        #room(style='display:none')
+          .room_chat
+            #room_message
+            input#chat_room_message(type='text', value='Room Message')
+            button#send_room_message Send
+      #hide-show Hide
+      #invite_form(style='display:none')
+        .message_content Do you want to room chat ?
+        .button
+          button#no.no No
+          button#yes.yes Yes
+      #map
+    script(src='http://code.jquery.com/jquery-1.11.1.js')
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAunKri1FML30cMFSwpCgaKEuy2D6Rg0IA')
+    script(src='/socket.io/socket.io.js')
+    script(src='/js/core.js')
